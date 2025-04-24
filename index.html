@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Watch how we built 3 full-stack micro-SaaS platforms in under 60 minutes using xBesh AI with zero coding required.">
     <title>xBesh AI - Early Sneak Peak Demo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,10 +38,24 @@
 
             .video-wrapper {
                 margin: 20px 0;
+                padding: 2px;
             }
 
             .video-container {
                 padding-top: 56.25%;
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 8px;
             }
 
             .platform-card {
@@ -145,6 +160,10 @@
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .video-wrapper {
+                max-width: 90%;
+            }
         }
 
         /* General Responsive Improvements */
@@ -157,6 +176,40 @@
             max-width: 100%;
             height: auto;
         }
+        
+        /* Enhanced video container styles */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 3px;
+            background: linear-gradient(45deg, #60a5fa, #3b82f6, #60a5fa);
+            background-size: 200% 200%;
+            animation: gradientBorder 3s ease infinite;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 0.8rem;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0.8rem;
+        }
 
         /* Improved Mobile Menu */
         @media (max-width: 768px) {
@@ -166,6 +219,23 @@
 
             .logo {
                 max-width: 120px;
+            }
+        }
+        
+        /* Small screen optimization */
+        @media (max-width: 480px) {
+            .video-wrapper {
+                padding: 2px;
+                margin: 1.5rem auto;
+                border-radius: 0.5rem;
+            }
+            
+            .video-container {
+                border-radius: 0.4rem;
+            }
+            
+            .video-container iframe {
+                border-radius: 0.4rem;
             }
         }
     </style>
@@ -190,7 +260,7 @@
             <!-- Demo Video -->
             <div class="video-wrapper mb-12">
                 <div class="video-container wide">
-                    <iframe src="https://player.vimeo.com/video/1078294397?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="xBesh AI Full Demo"></iframe>
+                    <iframe src="https://player.vimeo.com/video/1078294397?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="xBesh AI Full Demo" loading="lazy"></iframe>
                 </div>
             </div>
 
@@ -1046,6 +1116,12 @@
                         }
                     });
                 });
+            } else {
+                // For touch devices, make demo buttons always visible
+                document.querySelectorAll('.platform-image .demo-cta').forEach(btn => {
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
             }
 
             // Mobile-friendly animations
@@ -1072,9 +1148,10 @@
             // Mobile-friendly chart animations
             function initBarChartAnimation() {
                 const chartBars = document.querySelectorAll('.chart-bar.xbesh');
+                const isMobile = window.innerWidth <= 768;
                 
                 chartBars.forEach(bar => {
-                    const minWidth = window.innerWidth <= 768 ? 40 : 30;
+                    const minWidth = isMobile ? 40 : 30;
                     const timeText = bar.querySelector('.chart-value').textContent;
                     const isMinutes = timeText.includes('Minutes') || timeText.includes('Minute');
                     
@@ -1084,6 +1161,13 @@
                         bar.style.width = '100%';
                     }
                 });
+                
+                // Ensure chart values are visible on mobile
+                if (isMobile) {
+                    document.querySelectorAll('.chart-bar .chart-value').forEach(value => {
+                        value.style.opacity = '1';
+                    });
+                }
             }
             
             // Mobile-friendly pie chart interactions
@@ -1111,6 +1195,15 @@
             initStatsAnimation();
             initBarChartAnimation();
             initPieChartInteraction();
+            
+            // Fix for platform card visibility on small screens
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                document.querySelectorAll('.stats-card, .benefit-card').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }
             
             // Mobile-friendly platform cards
             const platformCards = document.querySelectorAll('.platform-card');
@@ -1151,7 +1244,7 @@
             });
 
             // Mobile-specific optimizations
-            if (window.innerWidth <= 768) {
+            if (isMobile) {
                 // Optimize video loading for mobile
                 const videoIframe = document.querySelector('.video-container iframe');
                 if (videoIframe) {
@@ -1162,6 +1255,28 @@
                 document.querySelectorAll('img').forEach(img => {
                     img.setAttribute('loading', 'lazy');
                 });
+                
+                // Fix chart sizing on orientation change
+                window.addEventListener('resize', function() {
+                    initBarChartAnimation();
+                    
+                    // Ensure FAQ answers maintain proper height after resize
+                    document.querySelectorAll('.faq-item.active').forEach(item => {
+                        const answer = item.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    });
+                });
+                
+                // Additional optimization for very small screens
+                if (window.innerWidth <= 375) {
+                    document.querySelectorAll('.platform-title').forEach(title => {
+                        title.style.fontSize = '1.5rem';
+                    });
+                    
+                    document.querySelectorAll('.platform-description').forEach(desc => {
+                        desc.style.fontSize = '0.9rem';
+                    });
+                }
             }
         });
     </script>

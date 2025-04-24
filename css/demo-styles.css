@@ -2476,4 +2476,125 @@
     .chart-bar.xbesh {
         min-width: 40%;
     }
+}
+
+/* Mobile Chart and Platform Cards Improvements */
+@media (max-width: 768px) {
+    /* Fixed chart value display issues */
+    .chart-bar.traditional {
+        height: auto;
+        min-height: 2.5rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .chart-bar.xbesh {
+        height: auto;
+        min-height: 2.5rem;
+        padding: 0.5rem 0.75rem;
+        min-width: 40%;
+    }
+    
+    .chart-bar .chart-value {
+        position: relative;
+        display: block;
+        text-align: left;
+        white-space: normal;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Fixed pie chart animation on mobile */
+    .slice1, .slice2 {
+        animation-duration: 1.5s;
+    }
+    
+    /* Ensure platform cards stack properly */
+    .platform-card {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Stats container fixes */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    /* Ensure all stats cards are visible */
+    .stats-card {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Ensure all benefit cards are visible */
+    .benefit-card {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Fixed demo button on platform images */
+    .platform-image .demo-cta {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        max-width: 80%;
+        word-break: keep-all;
+        white-space: nowrap;
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 375px) {
+    .platform-image .demo-cta {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .pie-chart-container {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    
+    .pie-chart {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .pie-chart-center {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .pie-chart-center span:first-child {
+        font-size: 1.4rem;
+    }
+    
+    .pie-chart-center span:last-child {
+        font-size: 0.65rem;
+    }
+}
+
+/* Fix vertical spacing on mobile */
+@media (max-width: 768px) {
+    .platform-card + .platform-card {
+        margin-top: 3rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .mb-12 {
+        margin-bottom: 2rem;
+    }
+    
+    .mt-6 {
+        margin-top: 1rem;
+    }
+    
+    /* Additional fixes for footer */
+    .footer {
+        margin-top: 2rem;
+    }
 } 
