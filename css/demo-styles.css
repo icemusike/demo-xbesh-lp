@@ -1,5 +1,5 @@
 /* Inherit base styles from main styles.css */
-@import url('styles.css');
+@import url('./styles.css');
 
 /* Demo Page Specific Styles */
 .content-card {
