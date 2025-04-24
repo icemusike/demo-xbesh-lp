@@ -14,6 +14,161 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/demo-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .content-card {
+                padding: 20px;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 24px;
+                line-height: 1.3;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .video-wrapper {
+                margin: 20px 0;
+            }
+
+            .video-container {
+                padding-top: 56.25%;
+            }
+
+            .platform-card {
+                margin: 20px 0;
+                padding: 15px;
+            }
+
+            .platform-image img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .benefits-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .benefit-card {
+                width: 100%;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .faq-item {
+                margin: 15px 0;
+            }
+
+            .faq-question h3 {
+                font-size: 18px;
+                padding-right: 30px;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .footer-nav a {
+                margin: 5px 0;
+            }
+
+            /* Mobile Navigation Improvements */
+            .platform-showcase {
+                padding: 15px 0;
+            }
+
+            .platform-stats-container {
+                padding: 15px;
+            }
+
+            .chart-container {
+                margin: 10px 0;
+            }
+
+            .pie-chart-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            /* Touch-friendly adjustments */
+            .btn, .demo-cta {
+                padding: 12px 20px;
+                min-width: 120px;
+            }
+
+            /* Mobile-specific animations */
+            @media (hover: none) {
+                .platform-image:hover {
+                    transform: none !important;
+                }
+                
+                .platform-image img:hover {
+                    transform: none !important;
+                }
+            }
+        }
+
+        /* Tablet Responsive Styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* General Responsive Improvements */
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Improved Mobile Menu */
+        @media (max-width: 768px) {
+            .logo-container {
+                padding: 10px 0;
+            }
+
+            .logo {
+                max-width: 120px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -822,7 +977,7 @@
     <script src="js/notification-engine.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix FAQ Toggle Functionality
+            // Mobile-friendly FAQ Toggle
             const faqQuestions = document.querySelectorAll('.faq-question');
             
             faqQuestions.forEach(question => {
@@ -855,46 +1010,45 @@
                 });
             });
 
-            // Rest of your existing code remains the same
+            // Mobile-friendly image hover effects
             const platformImages = document.querySelectorAll('.platform-image');
             
-            // Add mouse movement effect to images
-            platformImages.forEach(image => {
-                image.addEventListener('mousemove', (e) => {
-                    const rect = image.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    // Calculate percentage position
-                    const xPercent = x / rect.width;
-                    const yPercent = y / rect.height;
-                    
-                    // Calculate rotation values
-                    const rotateX = (0.5 - yPercent) * 6; // Max 3 degree rotation
-                    const rotateY = (xPercent - 0.5) * 6; // Max 3 degree rotation
-                    
-                    // Apply transform to the image
-                    image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-                    
-                    // Position highlight reflection
-                    const imgElement = image.querySelector('img');
-                    if (imgElement) {
-                        imgElement.style.transform = `scale(1.03)`;
-                    }
-                });
-                
-                // Reset image on mouse leave
-                image.addEventListener('mouseleave', () => {
-                    image.style.transform = '';
-                    
-                    const imgElement = image.querySelector('img');
-                    if (imgElement) {
-                        imgElement.style.transform = '';
-                    }
-                });
-            });
+            // Check if device supports hover
+            const hasHover = window.matchMedia('(hover: hover)').matches;
             
-            // Stats cards animation
+            if (hasHover) {
+                platformImages.forEach(image => {
+                    image.addEventListener('mousemove', (e) => {
+                        const rect = image.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const xPercent = x / rect.width;
+                        const yPercent = y / rect.height;
+                        
+                        const rotateX = (0.5 - yPercent) * 6;
+                        const rotateY = (xPercent - 0.5) * 6;
+                        
+                        image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                        
+                        const imgElement = image.querySelector('img');
+                        if (imgElement) {
+                            imgElement.style.transform = `scale(1.03)`;
+                        }
+                    });
+                    
+                    image.addEventListener('mouseleave', () => {
+                        image.style.transform = '';
+                        
+                        const imgElement = image.querySelector('img');
+                        if (imgElement) {
+                            imgElement.style.transform = '';
+                        }
+                    });
+                });
+            }
+
+            // Mobile-friendly animations
             function initStatsAnimation() {
                 const statsCards = document.querySelectorAll('.stats-card, .benefit-card');
                 
@@ -906,7 +1060,8 @@
                         }
                     });
                 }, {
-                    threshold: 0.2
+                    threshold: 0.1, // Lower threshold for mobile
+                    rootMargin: '0px 0px -50px 0px' // Adjust for mobile viewport
                 });
                 
                 statsCards.forEach(card => {
@@ -914,24 +1069,16 @@
                 });
             }
             
-            // Bar chart animation
+            // Mobile-friendly chart animations
             function initBarChartAnimation() {
                 const chartBars = document.querySelectorAll('.chart-bar.xbesh');
                 
                 chartBars.forEach(bar => {
-                    // Calculate width percentage based on comparison
-                    // For example: 27 minutes vs 6-10 weeks (6 weeks = 6 * 7 * 24 * 60 = 60,480 minutes)
-                    // So 27 / 60,480 = ~0.0004 or 0.04%
-                    // We'll set a minimum width for visibility
-                    const minWidth = 30; // Minimum percentage width for visibility
-                    
-                    // Get the time value
+                    const minWidth = window.innerWidth <= 768 ? 40 : 30;
                     const timeText = bar.querySelector('.chart-value').textContent;
                     const isMinutes = timeText.includes('Minutes') || timeText.includes('Minute');
                     
-                    // Set appropriate width
                     if (isMinutes) {
-                        // For visual clarity, we'll use a minimum width
                         bar.style.width = minWidth + '%';
                     } else {
                         bar.style.width = '100%';
@@ -939,23 +1086,25 @@
                 });
             }
             
-            // Interactive pie chart - hover effect
+            // Mobile-friendly pie chart interactions
             function initPieChartInteraction() {
                 const pieCharts = document.querySelectorAll('.pie-chart-container');
                 
-                pieCharts.forEach(chart => {
-                    chart.addEventListener('mouseenter', () => {
-                        const centerElement = chart.querySelector('.pie-chart-center');
-                        centerElement.style.transform = 'translate(-50%, -50%) scale(1.1)';
-                        centerElement.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                if (hasHover) {
+                    pieCharts.forEach(chart => {
+                        chart.addEventListener('mouseenter', () => {
+                            const centerElement = chart.querySelector('.pie-chart-center');
+                            centerElement.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                            centerElement.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                        });
+                        
+                        chart.addEventListener('mouseleave', () => {
+                            const centerElement = chart.querySelector('.pie-chart-center');
+                            centerElement.style.transform = 'translate(-50%, -50%)';
+                            centerElement.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.2)';
+                        });
                     });
-                    
-                    chart.addEventListener('mouseleave', () => {
-                        const centerElement = chart.querySelector('.pie-chart-center');
-                        centerElement.style.transform = 'translate(-50%, -50%)';
-                        centerElement.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.2)';
-                    });
-                });
+                }
             }
             
             // Initialize all animations and interactions
@@ -963,10 +1112,9 @@
             initBarChartAnimation();
             initPieChartInteraction();
             
-            // Platform cards with staggered animation
+            // Mobile-friendly platform cards
             const platformCards = document.querySelectorAll('.platform-card');
             
-            // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -982,17 +1130,16 @@
             }, {
                 root: null,
                 threshold: 0.1,
-                rootMargin: '0px'
+                rootMargin: '0px 0px -50px 0px' // Adjust for mobile viewport
             });
             
-            // Observe platform cards for scroll animations
             platformCards.forEach(card => {
                 observer.observe(card);
             });
 
-            // Initialize FAQ sections - trigger once on load to set initial state
+            // Initialize FAQ sections
             document.querySelectorAll('.faq-question').forEach((question, index) => {
-                if (index === 0) { // Open the first FAQ item by default
+                if (index === 0) {
                     const faqItem = question.closest('.faq-item');
                     const answer = question.nextElementSibling;
                     const toggle = question.querySelector('.faq-toggle');
@@ -1002,6 +1149,20 @@
                     toggle.innerHTML = '<i class="fas fa-minus"></i>';
                 }
             });
+
+            // Mobile-specific optimizations
+            if (window.innerWidth <= 768) {
+                // Optimize video loading for mobile
+                const videoIframe = document.querySelector('.video-container iframe');
+                if (videoIframe) {
+                    videoIframe.setAttribute('loading', 'lazy');
+                }
+
+                // Optimize image loading
+                document.querySelectorAll('img').forEach(img => {
+                    img.setAttribute('loading', 'lazy');
+                });
+            }
         });
     </script>
 </body>
