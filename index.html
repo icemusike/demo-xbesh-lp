@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/demo-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -56,55 +57,138 @@
                     <!-- Card Image -->
                     <div class="platform-image">
                         <img src="images/koala-invoices-screenshot.png" alt="AI Invoice Reminder Dashboard">
+                        <a href="https://www.koalainvoices.space/" class="demo-cta" target="_blank">
+                            Check out Full DEMO <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     
                     <!-- Card Stats -->
-                    <div class="platform-stats">
-                        <div class="stat-item">
-                            <div class="stat-label">Niche</div>
-                            <div class="stat-value">Freelancers, Small Businesses</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Time to Create</div>
-                            <div class="stat-value">27 Minutes with xBesh AI</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Invested Money</div>
-                            <div class="stat-value">~$0 (Excluding xBesh)</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real World Cost</div>
-                            <div class="stat-value">
-                                <div class="cost-value">
-                                    <span class="traditional-cost">$8,000 - $15,000+</span>
-                                    <span class="savings-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z" clip-rule="evenodd" />
-                                        </svg>
-                                        Massive Savings!
-                                    </span>
+                    <div class="platform-stats-container">
+                        <h4 class="stats-title"><i class="fas fa-chart-line"></i> Platform Analytics</h4>
+                        
+                        <div class="stats-grid">
+                            <!-- Niche & Time Info Card -->
+                            <div class="stats-card primary-stats">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-bullseye"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Target Market</span>
+                                            <span class="stat-value primary">Freelancers, Small Businesses</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-stopwatch"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Development Time</span>
+                                            <span class="stat-value primary">27 Minutes with xBesh AI</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Initial Investment</span>
+                                            <span class="stat-value primary">~$0 (Excluding xBesh)</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real Dev Time</div>
-                            <div class="stat-value">
-                                <div class="time-value">
-                                    <span class="traditional-time">6 - 10+ Weeks</span>
-                                    <span class="time-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M15.312 11.424a.75.75 0 01-.183 1.045l-3.75 2.5a.75.75 0 01-.84-.015l-3.75-2.75a.75.75 0 011.77-.461L8.594 13.98l3.131-2.085a.75.75 0 011.046.183z" clip-rule="evenodd" />
-                                          <path fill-rule="evenodd" d="M3.5 2A1.5 1.5 0 002 3.5V15a3 3 0 106 0V3.5A1.5 1.5 0 006.5 2h-3zm11.75 10.5a3.251 3.251 0 13.75 0 3.251 3.251 0 013.75 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        Time Saved!
-                                    </span>
+                            
+                            <!-- Time Saved Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-hourglass-half"></i> Time Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container time-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-tools"></i> Traditional Development</div>
+                                                <div class="chart-bar traditional">
+                                                    <span class="chart-value">6-10 Weeks</span>
+                                                </div>
+                                            </div>
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-robot"></i> xBesh AI Solution</div>
+                                                <div class="chart-bar xbesh">
+                                                    <span class="chart-value">27 Minutes</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-caption">
+                                            <div class="time-saved-indicator">
+                                                <i class="fas fa-bolt"></i>
+                                                <span>99.8% Time Saved</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
+                            
+                            <!-- Cost Savings Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-dollar-sign"></i> Cost Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container cost-chart">
+                                        <div class="pie-chart-container">
+                                            <div class="pie-chart">
+                                                <div class="slice slice1"></div>
+                                                <div class="slice slice2"></div>
+                                            </div>
+                                            <div class="pie-chart-center">
+                                                <span>90%</span>
+                                                <span>SAVINGS</span>
+                                            </div>
+                                        </div>
+                                        <div class="pie-legend">
+                                            <div class="legend-item">
+                                                <span class="legend-color traditional-color"></span>
+                                                <span class="legend-label"><i class="fas fa-code"></i> Traditional: $8,000-$15,000+</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-color xbesh-color"></span>
+                                                <span class="legend-label"><i class="fas fa-magic"></i> xBesh AI: Fraction of cost</span>
+                        </div>
+                        </div>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Benefits -->
+                        <div class="benefits-row">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h5>Rapid Deployment</h5>
+                                <p>Launch your SaaS product in minutes instead of months</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h5>Zero Coding Required</h5>
+                                <p>No technical skills needed to build professional applications</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h5>Enterprise-Grade Quality</h5>
+                                <p>Get professional, scalable applications ready for real customers</p>
+                            </div>
                         </div>
                     </div>
 
@@ -127,55 +211,138 @@
                     <!-- Card Image -->
                     <div class="platform-image">
                         <img src="images/screen-recorder-screenshot.png" alt="Screen Recording App Interface">
+                        <a href="https://recorder-wave-v1-a2qr.vercel.app/" class="demo-cta" target="_blank">
+                            Check out Full DEMO <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     
                     <!-- Card Stats -->
-                    <div class="platform-stats">
-                        <div class="stat-item">
-                            <div class="stat-label">Niche</div>
-                            <div class="stat-value">Content Creators, Support Teams</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Time to Create</div>
-                            <div class="stat-value">24 Minutes with xBesh AI</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Invested Money</div>
-                            <div class="stat-value">~$0 (Excluding xBesh)</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real World Cost</div>
-                            <div class="stat-value">
-                                <div class="cost-value">
-                                    <span class="traditional-cost">$10,000 - $20,000+</span>
-                                    <span class="savings-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z" clip-rule="evenodd" />
-                                        </svg>
-                                        Massive Savings!
-                                    </span>
+                    <div class="platform-stats-container">
+                        <h4 class="stats-title"><i class="fas fa-chart-line"></i> Platform Analytics</h4>
+                        
+                        <div class="stats-grid">
+                            <!-- Niche & Time Info Card -->
+                            <div class="stats-card primary-stats">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-bullseye"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Target Market</span>
+                                            <span class="stat-value primary">Content Creators, Support Teams</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-stopwatch"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Development Time</span>
+                                            <span class="stat-value primary">24 Minutes with xBesh AI</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Initial Investment</span>
+                                            <span class="stat-value primary">~$0 (Excluding xBesh)</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real Dev Time</div>
-                            <div class="stat-value">
-                                <div class="time-value">
-                                    <span class="traditional-time">7 - 11+ Weeks</span>
-                                    <span class="time-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M15.312 11.424a.75.75 0 01-.183 1.045l-3.75 2.5a.75.75 0 01-.84-.015l-3.75-2.75a.75.75 0 011.77-.461L8.594 13.98l3.131-2.085a.75.75 0 011.046.183z" clip-rule="evenodd" />
-                                          <path fill-rule="evenodd" d="M3.5 2A1.5 1.5 0 002 3.5V15a3 3 0 106 0V3.5A1.5 1.5 0 006.5 2h-3zm11.75 10.5a3.251 3.251 0 13.75 0 3.251 3.251 0 013.75 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        Time Saved!
-                                    </span>
+                            
+                            <!-- Time Saved Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-hourglass-half"></i> Time Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container time-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-tools"></i> Traditional Development</div>
+                                                <div class="chart-bar traditional">
+                                                    <span class="chart-value">7-11 Weeks</span>
+                                                </div>
+                                            </div>
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-robot"></i> xBesh AI Solution</div>
+                                                <div class="chart-bar xbesh">
+                                                    <span class="chart-value">24 Minutes</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-caption">
+                                            <div class="time-saved-indicator">
+                                                <i class="fas fa-bolt"></i>
+                                                <span>99.8% Time Saved</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
+                            
+                            <!-- Cost Savings Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-dollar-sign"></i> Cost Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container cost-chart">
+                                        <div class="pie-chart-container">
+                                            <div class="pie-chart">
+                                                <div class="slice slice1"></div>
+                                                <div class="slice slice2"></div>
+                                            </div>
+                                            <div class="pie-chart-center">
+                                                <span>90%</span>
+                                                <span>SAVINGS</span>
+                                            </div>
+                                        </div>
+                                        <div class="pie-legend">
+                                            <div class="legend-item">
+                                                <span class="legend-color traditional-color"></span>
+                                                <span class="legend-label"><i class="fas fa-code"></i> Traditional: $10,000-$20,000+</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-color xbesh-color"></span>
+                                                <span class="legend-label"><i class="fas fa-magic"></i> xBesh AI: Fraction of cost</span>
+                        </div>
+                        </div>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Benefits -->
+                        <div class="benefits-row">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h5>Rapid Deployment</h5>
+                                <p>Launch your SaaS product in minutes instead of months</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h5>Zero Coding Required</h5>
+                                <p>No technical skills needed to build professional applications</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h5>Enterprise-Grade Quality</h5>
+                                <p>Get professional, scalable applications ready for real customers</p>
+                            </div>
                         </div>
                     </div>
 
@@ -198,55 +365,138 @@
                     <!-- Card Image -->
                     <div class="platform-image">
                         <img src="images/dental-scheduler-screenshot.png" alt="Dental Clinic Scheduler Interface">
+                        <a href="https://dental-clinic-scheduler.vercel.app/" class="demo-cta" target="_blank">
+                            Check out Full DEMO <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     
                     <!-- Card Stats -->
-                    <div class="platform-stats">
-                        <div class="stat-item">
-                            <div class="stat-label">Niche</div>
-                            <div class="stat-value">Healthcare, Dental Clinics</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Time to Create</div>
-                            <div class="stat-value">9 Minutes with xBesh AI</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Invested Money</div>
-                            <div class="stat-value">~$0 (Excluding xBesh)</div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real World Cost</div>
-                            <div class="stat-value">
-                                <div class="cost-value">
-                                    <span class="traditional-cost">$12,000 - $25,000+</span>
-                                    <span class="savings-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z" clip-rule="evenodd" />
-                                        </svg>
-                                        Massive Savings!
-                                    </span>
+                    <div class="platform-stats-container">
+                        <h4 class="stats-title"><i class="fas fa-chart-line"></i> Platform Analytics</h4>
+                        
+                        <div class="stats-grid">
+                            <!-- Niche & Time Info Card -->
+                            <div class="stats-card primary-stats">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-bullseye"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Target Market</span>
+                                            <span class="stat-value primary">Healthcare, Dental Clinics</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-stopwatch"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Development Time</span>
+                                            <span class="stat-value primary">9 Minutes with xBesh AI</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-info-row">
+                                        <div class="stat-info-icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="stat-info-content">
+                                            <span class="stat-label">Initial Investment</span>
+                                            <span class="stat-value primary">~$0 (Excluding xBesh)</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">Real Dev Time</div>
-                            <div class="stat-value">
-                                <div class="time-value">
-                                    <span class="traditional-time">8 - 12+ Weeks</span>
-                                    <span class="time-indicator">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                          <path fill-rule="evenodd" d="M15.312 11.424a.75.75 0 01-.183 1.045l-3.75 2.5a.75.75 0 01-.84-.015l-3.75-2.75a.75.75 0 011.77-.461L8.594 13.98l3.131-2.085a.75.75 0 011.046.183z" clip-rule="evenodd" />
-                                          <path fill-rule="evenodd" d="M3.5 2A1.5 1.5 0 002 3.5V15a3 3 0 106 0V3.5A1.5 1.5 0 006.5 2h-3zm11.75 10.5a3.251 3.251 0 13.75 0 3.251 3.251 0 013.75 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        Time Saved!
-                                    </span>
+                            
+                            <!-- Time Saved Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-hourglass-half"></i> Time Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container time-chart">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-tools"></i> Traditional Development</div>
+                                                <div class="chart-bar traditional">
+                                                    <span class="chart-value">8-12 Weeks</span>
+                                                </div>
+                                            </div>
+                                            <div class="chart-bar-group">
+                                                <div class="chart-label"><i class="fas fa-robot"></i> xBesh AI Solution</div>
+                                                <div class="chart-bar xbesh">
+                                                    <span class="chart-value">9 Minutes</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-caption">
+                                            <div class="time-saved-indicator">
+                                                <i class="fas fa-bolt"></i>
+                                                <span>99.8% Time Saved</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stat-highlight"></div>
+                            
+                            <!-- Cost Savings Chart -->
+                            <div class="stats-card chart-card">
+                                <div class="stats-card-header">
+                                    <h5><i class="fas fa-dollar-sign"></i> Cost Efficiency Analysis</h5>
+                                </div>
+                                <div class="stats-card-content">
+                                    <div class="chart-container cost-chart">
+                                        <div class="pie-chart-container">
+                                            <div class="pie-chart">
+                                                <div class="slice slice1"></div>
+                                                <div class="slice slice2"></div>
+                                            </div>
+                                            <div class="pie-chart-center">
+                                                <span>90%</span>
+                                                <span>SAVINGS</span>
+                                            </div>
+                                        </div>
+                                        <div class="pie-legend">
+                                            <div class="legend-item">
+                                                <span class="legend-color traditional-color"></span>
+                                                <span class="legend-label"><i class="fas fa-code"></i> Traditional: $12,000-$25,000+</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-color xbesh-color"></span>
+                                                <span class="legend-label"><i class="fas fa-magic"></i> xBesh AI: Fraction of cost</span>
+                        </div>
+                        </div>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Benefits -->
+                        <div class="benefits-row">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h5>Rapid Deployment</h5>
+                                <p>Launch your SaaS product in minutes instead of months</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h5>Zero Coding Required</h5>
+                                <p>No technical skills needed to build professional applications</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h5>Enterprise-Grade Quality</h5>
+                                <p>Get professional, scalable applications ready for real customers</p>
+                            </div>
                         </div>
                     </div>
 
@@ -337,34 +587,204 @@
             </section>
 
             <!-- FAQ Section -->
-            <section class="faq-section mb-12">
-                <h2 class="section-title text-center mb-8">Frequently Asked Questions</h2>
+            <section class="faq-section">
                 <div class="faq-container">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>Do I need coding experience to use xBesh AI?</h3>
-                            <span class="faq-toggle">+</span>
+                            <h3>What exactly is xBesh AI and how does it work?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>No coding experience is required! xBesh AI handles all the technical aspects, allowing you to focus on your ideas and business strategy.</p>
+                            <div class="faq-answer-content">
+                                <p>xBesh AI is a cutting-edge AI-powered platform that transforms your business ideas into fully functional web applications without requiring any coding knowledge. Using advanced natural language processing and machine learning, it understands your requirements and automatically:</p>
+                                <ul>
+                                    <li>Generates clean, efficient code</li>
+                                    <li>Creates modern, responsive user interfaces</li>
+                                    <li>Implements complex business logic</li>
+                                    <li>Sets up secure database structures</li>
+                                    <li>Configures API integrations</li>
+                                    <li>Handles deployment and hosting</li>
+                                </ul>
+                                <p>Simply describe your idea in plain English, and xBesh AI handles all the technical implementation.</p>
+                            </div>
                         </div>
                     </div>
+
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>How long does it take to build a platform?</h3>
-                            <span class="faq-toggle">+</span>
+                            <h3>Do I need any technical or coding experience to use xBesh AI?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>With xBesh AI, you can build a fully functional micro-SaaS platform in under 60 minutes, as demonstrated in our live demo.</p>
+                            <div class="faq-answer-content">
+                                <p>No, absolutely no coding experience is required! xBesh AI is specifically designed for:</p>
+                                <ul>
+                                    <li>Entrepreneurs and business owners</li>
+                                    <li>Non-technical founders</li>
+                                    <li>Small business owners</li>
+                                    <li>Creators and innovators</li>
+                                    <li>Anyone with a web app idea</li>
+                                </ul>
+                                <p>You only need to be able to describe what you want your application to do. Our AI handles all the technical aspects, from frontend design to backend logic, database management, and deployment.</p>
+                            </div>
                         </div>
                     </div>
+
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>What kind of platforms can I build?</h3>
-                            <span class="faq-toggle">+</span>
+                            <h3>How long does it take to build an application with xBesh AI?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>You can build any type of micro-SaaS platform, from content generators to task management systems and data analytics tools.</p>
+                            <div class="faq-answer-content">
+                                <p>Most applications can be built in 15-30 minutes, as demonstrated in our examples above. Here's a typical timeline:</p>
+                                <ul>
+                                    <li>Initial app generation: 5-10 minutes</li>
+                                    <li>Customization and refinements: 10-15 minutes</li>
+                                    <li>Testing and deployment: 5-10 minutes</li>
+                                </ul>
+                                <p>This is dramatically faster than traditional development, which typically takes weeks or months. The exact time depends on your application's complexity and specific requirements. Even complex applications rarely take more than an hour to build.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What types of applications can I build with xBesh AI?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>xBesh AI can build a wide range of web applications, including:</p>
+                                <ul>
+                                    <li>E-commerce platforms and online stores</li>
+                                    <li>Booking and reservation systems</li>
+                                    <li>Customer Relationship Management (CRM) tools</li>
+                                    <li>Project management software</li>
+                                    <li>Content Management Systems (CMS)</li>
+                                    <li>Analytics dashboards</li>
+                                    <li>Inventory management systems</li>
+                                    <li>Educational platforms and LMS</li>
+                                    <li>Social networking applications</li>
+                                    <li>Custom business tools and workflows</li>
+                                </ul>
+                                <p>If you can describe it, xBesh AI can likely build it. Our platform supports modern web technologies and can integrate with popular third-party services and APIs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much money can I save using xBesh AI?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Based on our case studies, businesses typically save 80-90% compared to traditional development costs. Here's a cost comparison:</p>
+                                <ul>
+                                    <li>Traditional development: $8,000 - $25,000+ per application</li>
+                                    <li>Freelance developers: $5,000 - $15,000+ per application</li>
+                                    <li>xBesh AI: A fraction of these costs</li>
+                                </ul>
+                                <p>Additional savings come from:</p>
+                                <ul>
+                                    <li>No need to hire developers</li>
+                                    <li>Faster time to market</li>
+                                    <li>Reduced maintenance costs</li>
+                                    <li>No technical debt</li>
+                                    <li>Automatic updates and improvements</li>
+                                </ul>
+                                <p>This makes professional web development accessible to businesses of all sizes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I customize the applications after they're built?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes! All applications built with xBesh AI are fully customizable. You can:</p>
+                                <ul>
+                                    <li>Modify the design and layout</li>
+                                    <li>Add new features and functionality</li>
+                                    <li>Change existing features</li>
+                                    <li>Update content and branding</li>
+                                    <li>Integrate new services and APIs</li>
+                                    <li>Scale your application as needed</li>
+                                </ul>
+                                <p>Changes can be made at any time using natural language instructions. Our AI understands your requirements and implements changes while maintaining code quality and consistency. You can iterate and improve your application as your business grows and needs evolve.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What about hosting and maintenance?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>xBesh AI provides comprehensive hosting and maintenance solutions:</p>
+                                <ul>
+                                    <li>Automatic deployment to secure cloud infrastructure</li>
+                                    <li>24/7 monitoring and uptime management</li>
+                                    <li>Regular security updates and patches</li>
+                                    <li>Performance optimization</li>
+                                    <li>Automatic backups and disaster recovery</li>
+                                    <li>SSL certificate management</li>
+                                    <li>CDN integration for fast global access</li>
+                                </ul>
+                                <p>You don't need to worry about any technical maintenance - we handle everything so you can focus on growing your business. Our infrastructure automatically scales with your needs, ensuring your application remains fast and reliable as you grow.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is my data secure with xBesh AI?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes, security is our top priority. We implement multiple layers of security:</p>
+                                <ul>
+                                    <li>End-to-end encryption for all data</li>
+                                    <li>Regular security audits and penetration testing</li>
+                                    <li>GDPR and CCPA compliance</li>
+                                    <li>Industry-standard security protocols</li>
+                                    <li>Regular backup systems</li>
+                                    <li>Access control and authentication</li>
+                                    <li>DDoS protection</li>
+                                </ul>
+                                <p>We follow best practices for data protection and comply with international security standards. Your application and data are protected by the same level of security used by major enterprises.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What kind of support do you provide?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>We offer comprehensive support to ensure your success:</p>
+                                <ul>
+                                    <li>24/7 technical support</li>
+                                    <li>Dedicated customer success manager</li>
+                                    <li>Detailed documentation and guides</li>
+                                    <li>Video tutorials and webinars</li>
+                                    <li>Community forum access</li>
+                                    <li>Regular check-ins and optimization suggestions</li>
+                                    <li>Priority support for business users</li>
+                                </ul>
+                                <p>Our support team is always available to help you make the most of xBesh AI and ensure your applications run smoothly.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -402,21 +822,40 @@
     <script src="js/notification-engine.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // FAQ Toggle Functionality
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const toggle = item.querySelector('.faq-toggle');
-                
+            // Fix FAQ Toggle Functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
                 question.addEventListener('click', () => {
-                    const isOpen = answer.style.display === 'block';
-                    answer.style.display = isOpen ? 'none' : 'block';
-                    toggle.textContent = isOpen ? '+' : '-';
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    const faqItem = question.closest('.faq-item');
+                    
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            const itemAnswer = item.querySelector('.faq-answer');
+                            const itemToggle = item.querySelector('.faq-toggle');
+                            itemAnswer.style.maxHeight = null;
+                            itemToggle.innerHTML = '<i class="fas fa-plus"></i>';
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    faqItem.classList.toggle('active');
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        toggle.innerHTML = '<i class="fas fa-plus"></i>';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        toggle.innerHTML = '<i class="fas fa-minus"></i>';
+                    }
                 });
             });
 
-            // Platform Image Interactions
+            // Rest of your existing code remains the same
             const platformImages = document.querySelectorAll('.platform-image');
             
             // Add mouse movement effect to images
@@ -455,7 +894,76 @@
                 });
             });
             
-            // Enhance stat items with staggered animation
+            // Stats cards animation
+            function initStatsAnimation() {
+                const statsCards = document.querySelectorAll('.stats-card, .benefit-card');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                });
+                
+                statsCards.forEach(card => {
+                    observer.observe(card);
+                });
+            }
+            
+            // Bar chart animation
+            function initBarChartAnimation() {
+                const chartBars = document.querySelectorAll('.chart-bar.xbesh');
+                
+                chartBars.forEach(bar => {
+                    // Calculate width percentage based on comparison
+                    // For example: 27 minutes vs 6-10 weeks (6 weeks = 6 * 7 * 24 * 60 = 60,480 minutes)
+                    // So 27 / 60,480 = ~0.0004 or 0.04%
+                    // We'll set a minimum width for visibility
+                    const minWidth = 30; // Minimum percentage width for visibility
+                    
+                    // Get the time value
+                    const timeText = bar.querySelector('.chart-value').textContent;
+                    const isMinutes = timeText.includes('Minutes') || timeText.includes('Minute');
+                    
+                    // Set appropriate width
+                    if (isMinutes) {
+                        // For visual clarity, we'll use a minimum width
+                        bar.style.width = minWidth + '%';
+                    } else {
+                        bar.style.width = '100%';
+                    }
+                });
+            }
+            
+            // Interactive pie chart - hover effect
+            function initPieChartInteraction() {
+                const pieCharts = document.querySelectorAll('.pie-chart-container');
+                
+                pieCharts.forEach(chart => {
+                    chart.addEventListener('mouseenter', () => {
+                        const centerElement = chart.querySelector('.pie-chart-center');
+                        centerElement.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                        centerElement.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.3)';
+                    });
+                    
+                    chart.addEventListener('mouseleave', () => {
+                        const centerElement = chart.querySelector('.pie-chart-center');
+                        centerElement.style.transform = 'translate(-50%, -50%)';
+                        centerElement.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.2)';
+                    });
+                });
+            }
+            
+            // Initialize all animations and interactions
+            initStatsAnimation();
+            initBarChartAnimation();
+            initPieChartInteraction();
+            
+            // Platform cards with staggered animation
             const platformCards = document.querySelectorAll('.platform-card');
             
             // Intersection Observer for scroll animations
@@ -480,6 +988,19 @@
             // Observe platform cards for scroll animations
             platformCards.forEach(card => {
                 observer.observe(card);
+            });
+
+            // Initialize FAQ sections - trigger once on load to set initial state
+            document.querySelectorAll('.faq-question').forEach((question, index) => {
+                if (index === 0) { // Open the first FAQ item by default
+                    const faqItem = question.closest('.faq-item');
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle');
+                    
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    toggle.innerHTML = '<i class="fas fa-minus"></i>';
+                }
             });
         });
     </script>
