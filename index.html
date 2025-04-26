@@ -25,6 +25,163 @@
     <link rel="stylesheet" href="css/demo-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Slimmer Navigation Menu - Max Height 60px */
+        .site-header {
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            max-height: 60px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem; /* Added top margin */
+            position: relative; /* Needed for absolute positioned mobile menu */
+        }
+
+        .site-header .header-content {
+            padding-top: 0; /* Remove padding */
+            padding-bottom: 0; /* Remove padding */
+            min-height: auto;
+            align-items: center;
+            display: flex; /* Ensure flex layout */
+            justify-content: space-between; /* Space out logo, nav, button */
+            width: 100%; /* Take full width */
+            height: 100%; /* Take full available height */
+        }
+
+        .logo-container {
+             padding: 0;
+             display: flex;
+             align-items: center;
+             height: 100%; /* Make container fill header height */
+             /* Adjust margin if needed for spacing */
+             /* margin-right: auto; */ 
+        }
+
+        .logo {
+            /* Remove explicit width/height constraints */
+            /* height: 40%; */ /* Removed percentage height */
+            max-height: 30px; /* Explicit max-height for logo */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle;
+            object-fit: contain; /* Ensure logo fits without distortion */
+            display: flex;
+            align-items: center;
+            width: 100%; /* Make items take full width */
+            text-align: center; /* Center text */
+        }
+
+        .nav-list {
+            margin: 0; /* Reset potential default margins */
+            align-items: center; /* Vertically align nav items */
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center; /* Vertically align nav items */
+        }
+
+        .nav-item {
+            margin-left: 0.8rem; /* Slightly Reduced spacing between items */
+        }
+
+        .nav-link {
+            padding: 0.3rem 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1; /* Ensure text fits */
+        }
+
+        .nav-item.dropdown .dropdown-menu {
+            top: calc(100% + 2px); /* Adjust dropdown position slightly */
+        }
+
+        .mobile-menu-toggle {
+            padding: 0.4rem 0.6rem;
+            font-size: 1.1rem;
+            height: 100%;
+            display: none; /* Hide by default */
+            align-items: center;
+            cursor: pointer; /* Add pointer cursor */
+            background: none; /* Ensure no background */
+            border: none; /* Ensure no border */
+            color: inherit; /* Inherit text color */
+        }
+
+        /* Mobile Specific Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none; /* Hide main nav on mobile by default */
+                /* Remove positioning from here, handled by .mobile-menu-active */
+            }
+
+            .mobile-menu-toggle {
+                display: flex; /* Show hamburger menu on mobile */
+            }
+        }
+
+        /* Styles for when mobile menu is active (JS adds class to body) */
+        body.mobile-menu-active .main-nav {
+            display: block; /* Show nav when active */
+            position: absolute;
+            top: 100%; /* Position below the header */
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.95); /* Adjust background color/opacity */
+            padding: 1rem;
+            z-index: 1000; /* Ensure it's on top */
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        body.mobile-menu-active .nav-list {
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items */
+        }
+
+        body.mobile-menu-active .nav-item {
+            margin-left: 0; /* Remove horizontal margin */
+            margin-bottom: 1rem; /* Add spacing between vertical items */
+            width: 100%; /* Make items take full width */
+            text-align: center; /* Center text */
+        }
+
+        body.mobile-menu-active .nav-item:last-child {
+            margin-bottom: 0;
+        }
+
+        body.mobile-menu-active .nav-link {
+            display: block; /* Make links block level */
+            padding: 0.8rem 1rem;
+            width: 100%;
+        }
+
+        body.mobile-menu-active .nav-item.dropdown {
+             overflow: visible; /* Ensure dropdown isn't clipped */
+             position: relative; /* Establish positioning context */
+        }
+
+        body.mobile-menu-active .dropdown-menu {
+            /* position: static; */ /* Removed static positioning */
+            box-shadow: none;
+            background-color: transparent;
+            border: none;
+            margin-top: 0.5rem;
+            padding: 0.5rem; /* Add some padding */
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow */
+            width: calc(100% - 1rem); /* Adjust width considering padding */
+            margin-left: 0.5rem; /* Center it slightly */
+            /* z-index: 1001; */ /* Ensure it's above the main mobile nav */
+            position: relative; /* Keep in flow relative to parent */
+            z-index: 1002; /* Increased z-index */
+        }
+
+        body.mobile-menu-active .dropdown-menu li a {
+            color: #cbd5e1; /* Adjust color for visibility */
+            padding: 0.5rem 1rem; /* Adjust padding for dropdown items */
+            display: block; /* Ensure full width clickable */
+        }
+
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .container {
@@ -247,13 +404,51 @@
                 border-radius: 0.4rem;
             }
         }
+
+        /* Footer Alignment Fix */
+        .footer-brand {
+            display: flex;
+            align-items: center; /* Vertically center items */
+            justify-content: center; /* Horizontally center the block */
+            margin-top: 1rem; /* Add some space above */
+            margin-bottom: 1rem; /* Add some space below */
+        }
+
+        .footer-brand span {
+            margin-right: 0.5rem; /* Add space between text and logo */
+            font-size: 0.9rem; /* Adjust font size if needed */
+            color: #94a3b8; /* Match copyright text color */
+        }
+
+        .footer-brand .logo {
+            max-height: 20px; /* Control logo size in footer */
+            width: auto;
+            vertical-align: middle; /* Keep just in case */
+        }
+
+        /* Removed duplicate media query declaration that caused linter error */
     </style>
 </head>
 <body>
     <div class="container">
+        <header class="site-header glass-nav">
+            <div class="header-content">
         <div class="logo-container">
+                    <a href="/" class="logo-link">
             <img src="images/2.png" alt="xBesh Logo" class="logo">
+                    </a>
         </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="https://jv.xbesh.com" class="nav-link">Affiliate Program</a></li>
+                        <li class="nav-item"><a href="#founders-section" class="nav-link">Founders</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
         
         <div class="content-card card animate-fade-in-up mx-auto">
             <!-- Main Headline -->
@@ -305,30 +500,30 @@
                             <div class="stats-card primary-stats">
                                 <div class="stats-card-header">
                                     <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
-                                </div>
+                        </div>
                                 <div class="stats-card-content">
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-bullseye"></i>
-                                        </div>
+                        </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Target Market</span>
                                             <span class="stat-value primary">Freelancers, Small Businesses</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-stopwatch"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Development Time</span>
                                             <span class="stat-value primary">27 Minutes with xBesh AI</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-wallet"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Initial Investment</span>
                                             <span class="stat-value primary">~$0 (Excluding xBesh)</span>
@@ -459,30 +654,30 @@
                             <div class="stats-card primary-stats">
                                 <div class="stats-card-header">
                                     <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
-                                </div>
+                        </div>
                                 <div class="stats-card-content">
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-bullseye"></i>
-                                        </div>
+                        </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Target Market</span>
                                             <span class="stat-value primary">Content Creators, Support Teams</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-stopwatch"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Development Time</span>
                                             <span class="stat-value primary">24 Minutes with xBesh AI</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-wallet"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Initial Investment</span>
                                             <span class="stat-value primary">~$0 (Excluding xBesh)</span>
@@ -613,30 +808,30 @@
                             <div class="stats-card primary-stats">
                                 <div class="stats-card-header">
                                     <h5><i class="fas fa-clipboard-list"></i> Project Overview</h5>
-                                </div>
+                        </div>
                                 <div class="stats-card-content">
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-bullseye"></i>
-                                        </div>
+                        </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Target Market</span>
                                             <span class="stat-value primary">Healthcare, Dental Clinics</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-stopwatch"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Development Time</span>
                                             <span class="stat-value primary">9 Minutes with xBesh AI</span>
-                                        </div>
-                                    </div>
+                        </div>
+                                </div>
                                     <div class="stat-info-row">
                                         <div class="stat-info-icon">
                                             <i class="fas fa-wallet"></i>
-                                        </div>
+                            </div>
                                         <div class="stat-info-content">
                                             <span class="stat-label">Initial Investment</span>
                                             <span class="stat-value primary">~$0 (Excluding xBesh)</span>
@@ -794,7 +989,7 @@
             </section>
 
             <!-- Founders Section -->
-            <section class="founders-section mb-12">
+            <section class="founders-section mb-12" id="founders-section">
                 <h2 class="section-title text-center mb-8">Meet the Founders</h2>
                 <div class="founders-grid">
                     <div class="founder-card">
@@ -842,8 +1037,8 @@
                                     <li>Handles deployment and hosting</li>
                                 </ul>
                                 <p>Simply describe your idea in plain English, and xBesh AI handles all the technical implementation.</p>
-                            </div>
                         </div>
+                    </div>
                     </div>
 
                     <div class="faq-item">
@@ -862,8 +1057,8 @@
                                     <li>Anyone with a web app idea</li>
                                 </ul>
                                 <p>You only need to be able to describe what you want your application to do. Our AI handles all the technical aspects, from frontend design to backend logic, database management, and deployment.</p>
-                            </div>
                         </div>
+                    </div>
                     </div>
 
                     <div class="faq-item">
@@ -1029,10 +1224,10 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-nav">
-                    <a href="#">Home</a> • 
-                    <a href="#">Privacy Policy</a> • 
-                    <a href="#">Terms of Service</a> • 
-                    <a href="#">Support</a>
+                    <a href="index.html">Home</a> • 
+                    <a href="privacy-policy.html">Privacy Policy</a> • 
+                    <a href="terms-of-service.html">Terms of Service</a> • 
+                    <a href="https://support.xbesh.community" target="_blank" rel="noopener noreferrer">Support</a>
                 </div>
                 
                 <div class="footer-brand">
@@ -1056,6 +1251,60 @@
     <script src="js/notification-engine.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const body = document.body;
+            const dropdownToggle = document.querySelectorAll('.dropdown-toggle');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    body.classList.toggle('mobile-menu-active');
+                    
+                    // Toggle icon between bars and X
+                    const iconElement = this.querySelector('i');
+                    if (body.classList.contains('mobile-menu-active')) {
+                        iconElement.classList.remove('fa-bars');
+                        iconElement.classList.add('fa-times');
+                    } else {
+                        iconElement.classList.remove('fa-times');
+                        iconElement.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Mobile Dropdown Toggle
+            if (window.innerWidth <= 768) {
+                dropdownToggle.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const dropdownMenu = this.nextElementSibling;
+                        const icon = this.querySelector('i');
+                        
+                        // Toggle dropdown visibility
+                        dropdownMenu.classList.toggle('active');
+                        
+                        // Rotate icon
+                        if (dropdownMenu.classList.contains('active')) {
+                            icon.style.transform = 'rotate(180deg)';
+                        } else {
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                });
+            }
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (body.classList.contains('mobile-menu-active') && 
+                    !e.target.closest('.main-nav') && 
+                    !e.target.closest('.mobile-menu-toggle')) {
+                    body.classList.remove('mobile-menu-active');
+                    const iconElement = mobileMenuToggle.querySelector('i');
+                    iconElement.classList.remove('fa-times');
+                    iconElement.classList.add('fa-bars');
+                }
+            });
+
             // Mobile-friendly FAQ Toggle
             const faqQuestions = document.querySelectorAll('.faq-question');
             
@@ -1096,35 +1345,35 @@
             const hasHover = window.matchMedia('(hover: hover)').matches;
             
             if (hasHover) {
-                platformImages.forEach(image => {
-                    image.addEventListener('mousemove', (e) => {
-                        const rect = image.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        
-                        const xPercent = x / rect.width;
-                        const yPercent = y / rect.height;
-                        
+            platformImages.forEach(image => {
+                image.addEventListener('mousemove', (e) => {
+                    const rect = image.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xPercent = x / rect.width;
+                    const yPercent = y / rect.height;
+                    
                         const rotateX = (0.5 - yPercent) * 6;
                         const rotateY = (xPercent - 0.5) * 6;
-                        
-                        image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-                        
-                        const imgElement = image.querySelector('img');
-                        if (imgElement) {
-                            imgElement.style.transform = `scale(1.03)`;
-                        }
-                    });
                     
-                    image.addEventListener('mouseleave', () => {
-                        image.style.transform = '';
-                        
-                        const imgElement = image.querySelector('img');
-                        if (imgElement) {
-                            imgElement.style.transform = '';
-                        }
-                    });
+                    image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                    
+                    const imgElement = image.querySelector('img');
+                    if (imgElement) {
+                        imgElement.style.transform = `scale(1.03)`;
+                    }
                 });
+                
+                image.addEventListener('mouseleave', () => {
+                    image.style.transform = '';
+                    
+                    const imgElement = image.querySelector('img');
+                    if (imgElement) {
+                        imgElement.style.transform = '';
+                    }
+                });
+            });
             } else {
                 // For touch devices, make demo buttons always visible
                 document.querySelectorAll('.platform-image .demo-cta').forEach(btn => {
