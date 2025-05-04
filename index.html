@@ -313,6 +313,15 @@
             }
         }
 
+        /* Disabling all video hover effects to prevent zoom issues */
+        .video-container:hover,
+        .video-container:hover iframe,
+        .platform-image:hover,
+        .platform-image:hover img,
+        .platform-image:hover .video-container {
+            transform: none !important;
+        }
+
         /* Tablet Responsive Styles */
         @media (min-width: 769px) and (max-width: 1024px) {
             .container {

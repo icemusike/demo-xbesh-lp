@@ -16,32 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Platform Image Interactions
     const platformImages = document.querySelectorAll('.platform-image');
     
-    // Add mouse movement effect to images
+    // Check if device supports hover
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    
+    if (hasHover) {
     platformImages.forEach(image => {
+        // Removing the mousemove event that causes 3D rotation and zoom effects
         image.addEventListener('mousemove', (e) => {
-            const rect = image.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            // Disabled transform to prevent zoom issues
+            image.style.transform = '';
             
-            // Calculate percentage position
-            const xPercent = x / rect.width;
-            const yPercent = y / rect.height;
-            
-            // Calculate rotation values
-            const rotateX = (0.5 - yPercent) * 6; // Max 3 degree rotation
-            const rotateY = (xPercent - 0.5) * 6; // Max 3 degree rotation
-            
-            // Apply transform to the image
-            image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            
-            // Position highlight reflection
             const imgElement = image.querySelector('img');
             if (imgElement) {
-                imgElement.style.transform = `scale(1.03)`;
+                imgElement.style.transform = '';
             }
         });
         
-        // Reset image on mouse leave
         image.addEventListener('mouseleave', () => {
             image.style.transform = '';
             
@@ -51,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    }
     
     // Enhance stat items with staggered animation
     const platformCards = document.querySelectorAll('.platform-card');

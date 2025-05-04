@@ -46,6 +46,9 @@
     border-radius: 0.8rem;
     overflow: hidden;
     background: #000;
+    /* Removing any potential transform effects */
+    transform: none !important;
+    transition: none !important;
 }
 
 .video-container iframe {
@@ -56,6 +59,9 @@
     height: 100%;
     border: none;
     border-radius: 0.8rem;
+    /* Removing any potential transform effects */
+    transform: none !important;
+    transition: none !important;
 }
 
 /* Platform Showcase Section */
@@ -284,8 +290,9 @@
     z-index: 1;
 }
 
+/* Removing hover after effect that could interfere with video viewing */
 .platform-image:hover::after {
-    opacity: 1;
+    opacity: 0;
 }
 
 @media (max-width: 768px) {

@@ -229,8 +229,9 @@ p {
     border-radius: 20px;
 }
 
+/* Removing the hover effect that causes zooming */
 .video-container:hover {
-    transform: scale(1.01);
+    transform: none;
 }
 
 .video-container iframe {
